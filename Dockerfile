@@ -1,5 +1,7 @@
 FROM ubuntu
 
+LABEL maintainer="docker@elementia.me"
+
 ENV DEBIAN_FRONTEND noninteractive
 
 # Add the user
