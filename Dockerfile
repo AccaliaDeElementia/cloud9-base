@@ -33,7 +33,8 @@ RUN groupadd -g 1000 ubuntu \
     jq \
     man-db \
     nano \
-    netcat \
+    # needed for eslint_d
+    netcat-openbsd \ 
     parallel \
     python \
     sudo \
