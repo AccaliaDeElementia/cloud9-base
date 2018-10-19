@@ -33,6 +33,7 @@ RUN groupadd -g 1000 ubuntu \
     jq \
     man-db \
     nano \
+    netcat \
     parallel \
     python \
     sudo \
@@ -63,6 +64,7 @@ RUN groupadd -g 1000 ubuntu \
 EXPOSE 52924/tcp 8080/tcp 3000-3999/tcp 3000-3999/udp
 
 VOLUME /home/ubuntu
+VOLUME /data
 
 USER ubuntu
 CMD ["/cloud9/node/bin/node", "/cloud9sdk/server.js", "--listen", "0.0.0.0", "-a", ":", "--port", "52924", "-w", "/home/ubuntu"]
