@@ -38,6 +38,7 @@ RUN groupadd -g 1000 ubuntu \
     parallel \
     python \
     sudo \
+    postgresql-client-common \
     time \
     tmux \
     tree \
