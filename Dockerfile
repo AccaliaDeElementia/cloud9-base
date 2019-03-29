@@ -37,6 +37,9 @@ RUN groupadd -g 1000 ubuntu \
     netcat-openbsd \ 
     parallel \
     python \
+    python3 \
+    python3-pip \
+    python3-virtualenv \
     sudo \
     postgresql-client-common \
     time \
