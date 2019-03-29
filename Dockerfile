@@ -3,6 +3,8 @@ FROM ubuntu
 LABEL maintainer="docker@elementia.me"
 
 ENV DEBIAN_FRONTEND noninteractive
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
 
 # Add the user
 RUN groupadd -g 1000 ubuntu \
@@ -55,8 +57,11 @@ RUN groupadd -g 1000 ubuntu \
   # install cloud9
   git clone https://github.com/c9/core.git /cloud9sdk \
   && \
-  /cloud9sdk/scripts/install-sdk.sh \
-  && \
+  /cloud9sdk/scripts/install-sdk.sh
+
+ADD cloud9sdk_node_modules.tar.bz2 /cloud9sdk
+
+RUN \
   mv /root/.c9 /cloud9 \
   && \
   chown -R ubuntu:ubuntu /cloud9 /cloud9sdk \
