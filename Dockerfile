@@ -52,19 +52,12 @@ RUN groupadd -g 1000 ubuntu \
   && \
   chmod 777 /tmp \
   && \
-  sed -i 's/%sudo\s.*/%sudo ALL=NOPASSWD:ALL/' /etc/sudoers \
-  && \
+  sed -i 's/%sudo\s.*/%sudo ALL=NOPASSWD:ALL/' /etc/sudoers 
   # install cloud9
-  git clone https://github.com/c9/core.git /cloud9sdk \
-  && \
-  /cloud9sdk/scripts/install-sdk.sh
+ADD cloud9sdk.tar.bz2 /cloud9sdk
+ADD cloud9.tar.bz2 /cloud9
 
-ADD cloud9sdk_node_modules.tar.bz2 /cloud9sdk
-
-RUN \
-  mv /root/.c9 /cloud9 \
-  && \
-  chown -R ubuntu:ubuntu /cloud9 /cloud9sdk \
+RUN chown -R ubuntu:ubuntu /cloud9 /cloud9sdk \
   && \
   chmod -R ug+rwX /cloud9 /cloud9sdk \
   && \
